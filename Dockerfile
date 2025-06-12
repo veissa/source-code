@@ -1,8 +1,12 @@
-FROM nginx:alpine
+FROM python:3.9-slim-buster
 
-COPY . /usr/share/nginx/html/
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-EXPOSE 80
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-CMD ["nginx", "-g", "daemon off;"] 
+COPY . .
+
+EXPOSE 5000
+
+CMD ["python", "app.py"] 

@@ -4,7 +4,7 @@ A web-based CTF challenge where participants need to find a hidden flag in the s
 
 ## Description
 
-This challenge presents a simple message decoder interface. The flag is hidden somewhere in the source code. Can you find it?
+This challenge presents a simple web page with a fun fact. The flag is hidden somewhere in the source code. Can you find it?
 
 ## Running the Challenge
 
@@ -13,7 +13,7 @@ This challenge presents a simple message decoder interface. The flag is hidden s
 1. Fork this repository
 2. Create a new project on Railway
 3. Connect your forked repository
-4. Railway will automatically detect the configuration and deploy the application
+4. Railway will automatically detect the Python application and deploy it
 5. Access the challenge through the provided Railway URL
 
 ### Using Docker
@@ -25,20 +25,29 @@ docker build -t secret-message-decoder .
 
 2. Run the container:
 ```bash
-docker run -d -p 8080:80 secret-message-decoder
+docker run -d -p 8080:5000 secret-message-decoder
 ```
 
 3. Access the challenge at `http://localhost:8080`
 
 ### Without Docker
 
-Simply open the `index.html` file in a web browser.
+1. Ensure you have Python 3 and pip installed.
+2. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+3. Run the Flask application:
+```bash
+python app.py
+```
+4. Access the challenge at `http://127.0.0.1:5000` (or the port specified by the `PORT` environment variable).
 
 ## Challenge Details
 
-- The challenge is a simple web application that appears to decode messages
-- The flag is hidden in the source code
-- Participants need to inspect the page source to find the flag
+- The challenge is a simple web application displaying a fun fact.
+- The flag is hidden in the source code.
+- Participants need to inspect the page source to find the flag.
 - The flag format is: `CIT{...}`
 
 ## Solution
